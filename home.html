@@ -50,16 +50,16 @@
     <!-- button section  -->
     <section>
         <div class="w-9/12 mx-auto bg-white shadow  mt-12 p-6 rounded-md">
-            <button class="btn btn-primary">Primary</button>
-            <button class="btn btn-outline btn-primary">Primary</button>
-            <button class="btn btn-outline btn-primary">Primary</button>
+            <button onclick="switchTab('all')" id="tab-all" class="btn btn-primary px-9">All</button>
+            <button onclick="switchTab('open')" id="tab-open" class="btn  px-7">Open</button>
+            <button onclick="switchTab('closed')" id="tab-closed" class="btn px-7">Closed</button>
         </div>
     </section>
 
     <!-- issues counts var  -->
-
         <section>
-        <div class="w-9/12 mx-auto bg-white shadow  mt-12 p-6 rounded-md flex justify-between items-center">
+            <div class="w-9/12 mx-auto bg-white shadow mb-15">
+                        <div class=" bg-white shadow  mt-12 p-6 rounded-md flex justify-between items-center"> 
             <div class="flex items-center gap-2">
                 <img class="bg-base-200 p-3 rounded-full" src="./assets/Aperture.png" alt="">
                 <div>
@@ -74,17 +74,50 @@
                 <span class="font-medium">Closed</span>
             </div>
         </div>
+
+            <!-- main section  -->
+    <section class=" ">
+        <div id="issues-container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-x-5">
+
+        </div>
+    </section>
+            </div>
+
     </section>
 
 
 
 
 
+<!-- <div class="card w-9/12 mx-auto bg-base-100 shadow-sm mt-5"> 
+        <div class="card-body shadow ">
+                <div class="flex justify-between items-center">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <span class="badge badge-xs badge-warning">HIGH</span>
+                </div>
+
+        <div class="space-y-5">
+                    <h2 class="text-2xl font-bold line-clamp-2">Fix navigation menu on mobile devices
+                    </h2>
+                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+                <div>
+                    <div class="badge bg-[#FECACA] p-6"><i class="fa-solid fa-bug"></i>BUG</div>
+                    <div class="badge bg-[#FDE68A] p-6">
+                    <img class="bg-[#fde68a]" src="./assets/Aperture.png" alt="">HELP WANTED</div>
+                </div>
+                <hr class="opacity-20">
+                <div>
+                    <p>#1 by john_doe</p>
+                    <p>1/15/2024</p>
+                </div>
+        </div>
+    </div>
+</div>  -->
 
 
+<script>
 
-
-
+</script>
 
 
 
