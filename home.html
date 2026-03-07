@@ -19,11 +19,12 @@
 <body>
     <!-- navbar section  -->
     <nav class="">
-        <div class="navbar bg-base-100 shadow-sm ">
-            <div class="flex-1 ml-5">
-                <a class="btn btn-ghost text-xl">daisyUI</a>
+        <div class="navbar bg-base-100 shadow-sm  flex justify-between">
+            <div class="flex " >
+                <img class="w-10" src="./assets/github-logo.png" alt="">
+                <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
             </div>
-            <div class="flex gap-2 mr-5 items-center">
+            <div class=" items-center flex gap-8 mr-15">
                 <label class="input">
                     <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
@@ -38,12 +39,42 @@
                     </svg>
                     <input type="search" required placeholder="Search issues..." />
                 </label>
-            </div>
-            <div class="mr-10">
+                            <div class="flex">
                 <button class="btn btn-primary">+ New Issue</button>
             </div>
+            </div>
+
         </div>
     </nav>
+
+    <!-- button section  -->
+    <section>
+        <div class="w-9/12 mx-auto bg-white shadow  mt-12 p-6 rounded-md">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-outline btn-primary">Primary</button>
+            <button class="btn btn-outline btn-primary">Primary</button>
+        </div>
+    </section>
+
+    <!-- issues counts var  -->
+
+        <section>
+        <div class="w-9/12 mx-auto bg-white shadow  mt-12 p-6 rounded-md flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img class="bg-base-200 p-3 rounded-full" src="./assets/Aperture.png" alt="">
+                <div>
+                    <p class="font-semibold text-[20px]">50 Issues</p>
+                    <p class="text-[#64748b]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div>
+                <div class="badge bg-green-500 badge-xs"></div>
+                <span class="font-medium">Open</span>
+                <div class="badge bg-[#a855f7] badge-xs"></div>
+                <span class="font-medium">Closed</span>
+            </div>
+        </div>
+    </section>
 
 
 
