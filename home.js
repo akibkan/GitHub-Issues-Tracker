@@ -107,7 +107,7 @@ function filterIssues(){
 
     function displayIssueCard(issues){
         issuescontainer.innerHTML = "";
-        console.log(issues)
+        // console.log(issues)
         issues.forEach(issue =>{
             
             // High medium and low lojik 
@@ -135,10 +135,10 @@ function filterIssues(){
                         <h2 class="text-2xl font-bold truncate">${issue.title}
                         </h2>
                         <p class="line-clamp-2 text-[#64748b]">${issue.description}</p>
-                        <div>
-                            ${issue.labels[0] ? `<div class="badge bg-[#FECACA] p-6"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</div>` : ''}
-                            ${issue.labels[1] ? `<div class="badge bg-[#FDE68A] p-6">
-                            <img class="bg-[#fde68a] logo" src="./assets/Aperture.png" alt=""> ${issue.labels[1]}
+                        <div class="flex justify-start">
+                            ${issue.labels[0] ? `<div class="badge bg-[#FECACA] py-6"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</div>` : ''}
+                            ${issue.labels[1] ? `<div class="badge bg-[#FDE68A] py-6">
+                            <img class="w-5 bg-[#fde68a] logo" src="./assets/Aperture.png" alt=""> ${issue.labels[1]}
                         </div>` : ''}
                     </div>
                 <hr class="opacity-20">
@@ -156,3 +156,19 @@ function filterIssues(){
 
 switchTab("all")
 loadIssueCard();
+
+document.getElementById("btn-search").
+addEventListener("click",()=>{
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+    // console.log(searchValue);
+
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues/")
+    .then(res => res.json())
+    .then(data=> {
+        const allIssues = data.data;
+        const filterIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(searchValue))
+        console.log(filterIssues);
+        displayIssueCard(filterIssues);
+    });
+});
