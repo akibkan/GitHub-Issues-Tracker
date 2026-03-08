@@ -56,6 +56,11 @@
         </div>
     </section>
 
+    <!-- loading spinner  -->
+    <div id="loading-spinner" class="h-[50vh] flex justify-center items-center hidden">
+        <span class="loading loading-spinner loading-xl"></span>
+    </div>
+
     <!-- issues counts var  -->
         <section>
             <div class="w-9/12 mx-auto bg-white shadow mb-15">
@@ -63,7 +68,7 @@
             <div class="flex items-center gap-2">
                 <img class="bg-base-200 p-3 rounded-full" src="./assets/Aperture.png" alt="">
                 <div>
-                    <p class="font-semibold text-[20px]">50 Issues</p>
+                    <p id="issue-count" class="font-semibold text-[20px]">50 Issues</p>
                     <p class="text-[#64748b]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -77,9 +82,12 @@
 
             <!-- main section  -->
     <section class=" ">
-        <div id="issues-container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-x-5">
+        <div id="issues-container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-8 gap-x-5">
 
+            
         </div>
+
+        
     </section>
             </div>
 
@@ -89,35 +97,8 @@
 
 
 
-<!-- <div class="card w-9/12 mx-auto bg-base-100 shadow-sm mt-5"> 
-        <div class="card-body shadow ">
-                <div class="flex justify-between items-center">
-                    <img src="./assets/Open-Status.png" alt="">
-                    <span class="badge badge-xs badge-warning">HIGH</span>
-                </div>
-
-        <div class="space-y-5">
-                    <h2 class="text-2xl font-bold line-clamp-2">Fix navigation menu on mobile devices
-                    </h2>
-                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-                <div>
-                    <div class="badge bg-[#FECACA] p-6"><i class="fa-solid fa-bug"></i>BUG</div>
-                    <div class="badge bg-[#FDE68A] p-6">
-                    <img class="bg-[#fde68a]" src="./assets/Aperture.png" alt="">HELP WANTED</div>
-                </div>
-                <hr class="opacity-20">
-                <div>
-                    <p>#1 by john_doe</p>
-                    <p>1/15/2024</p>
-                </div>
-        </div>
-    </div>
-</div>  -->
 
 
-<script>
-
-</script>
 
 
 

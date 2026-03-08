@@ -1,6 +1,31 @@
 const issuescontainer = document.getElementById("issues-container");
+const loadingSpinner = document.getElementById("loading-spinner")
+
+function showLoading(){
+        loadingSpinner.classList.remove("hidden");
+        issuescontainer.innerHTML = "";
+}
+function hideLoading(){
+    loadingSpinner.classList.add("hidden");
+}
 
 let currenTav= "all";
+let allIssues = []; 
+
+// filter function
+function filterIssues(){
+    if(currenTav === "all"){
+        filtered = allIssues;
+        // return;
+    }else{
+        filtered = allIssues.filter(issue => issue.status.toLowerCase()=== currenTav);
+    }
+
+    const countIssue = document.getElementById("issue-count");
+    countIssue.innerText = filtered.length +  " issues";
+    displayIssueCard(filtered);
+}
+
 
     function switchTab(tab){
         const tabs = ["all", "open","closed"];
@@ -8,6 +33,7 @@ let currenTav= "all";
         for(const t of tabs){
             const tabName = document.getElementById('tab-'+ t);
             // console.log(tabName);
+            
             if(t === tab){
                 tabName.classList.add('btn-primary');
                 tabName.classList.remove('btn-outline')
@@ -15,18 +41,27 @@ let currenTav= "all";
                 tabName.classList.remove('btn-primary');
             }
         }
+        filterIssues();
     }
+
 
     // load issues card 
     async function loadIssueCard() {
-        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues ");
+        showLoading()
+        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
         const data = await res.json();
+        loadingSpinner.classList.add("hidden");
+        hideLoading()
+        allIssues = data.data; //2
+        filterIssues(); //2
         displayIssueCard(data.data);
     };
 
     function displayIssueCard(issues){
+        issuescontainer.innerHTML = "";
         console.log(issues)
         issues.forEach(issue =>{
+            
             // High medium and low lojik 
             if(issue.priority === "high"){
             className= 'badge bg-[#FEECEC] text-[#ef4444]'
