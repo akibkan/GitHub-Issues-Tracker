@@ -45,6 +45,54 @@ function filterIssues(){
     }
 
 
+    // load issue details 
+    const loadIssueDetail = async (id) => {
+        const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+        const res = await fetch (url);
+        const details = await res.json();
+        displayIssueDetails(details.data);
+    }
+    // display issue details
+    const displayIssueDetails = (issue) =>{
+        console.log(issue);
+        const detailsBox = document.getElementById("details-container");
+        detailsBox.innerHTML = `
+        
+        <div class="space-y-6">
+            <h2 class="font-bold text-2xl">${issue.title}</h2>
+            <div class="flex gap-4">
+                <button class=" btn bg-[#00a96e] rounded-lg text-white border-none">Opened</button>
+                <ul class="flex gap-4 text-[#64748b]">
+                    <li>${issue.author}</li>
+                    <li>${issue.createdAt}</li>
+                </ul>
+            </div>
+            
+            <div>
+                ${issue.labels[0] ? `<div class="badge bg-[#FECACA] p-6"><i class="fa-solid fa-bug"></i> ${issue.labels[0]}</div>` : ''}
+                ${issue.labels[1] ? `<div class="badge bg-[#FDE68A] p-6">
+                <img class="bg-[#fde68a] logo" src="./assets/Aperture.png" alt=""> ${issue.labels[1]}
+            </div>` : ''} 
+            <p class="text-[#64748b]">${issue.description}</p>
+            <div class="bg-base-200 grid grid-cols-2 p-3">
+                <div>
+                    <p>Assignee:</p>
+                    <p>${issue.assignee}</p>
+                </div>
+                <div>
+                    <p>Priority:</p>
+                    <button class="bg-[#ef4444] text-white rounded-xl px-4 py-1">${issue.priority}</button>
+                </div>
+            </div>
+
+        </div> 
+        
+        
+        `;
+        document.getElementById("my_modal_5").showModal();
+    }
+
+
     // load issues card 
     async function loadIssueCard() {
         showLoading()
@@ -77,7 +125,7 @@ function filterIssues(){
             const card = document.createElement("div");
             card.className = "card bg-base-100 shadow-sm mt-5";
             card.innerHTML = `
-            <div class="card-body shadow ${borderColor}">
+            <div onclick="loadIssueDetail(${issue.id})" class="card-body shadow ${borderColor}">
                 <div class="flex justify-between items-center">
                     <img src="${issue.status.toLowerCase( ) === 'open' ? './assets/Open-Status.png':'./assets/Closed- status .png'}" alt="">
                     <span class=" ${className}">${issue.priority}</span>
